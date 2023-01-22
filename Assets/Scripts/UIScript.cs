@@ -10,7 +10,7 @@ public class UIScript : MonoBehaviour {
 
 
     private void Start() {
-        PlayerController.instance.OnControllableUnitPickUp += PlayerController_OnControllableUnitPickUp;
+        PlayerInteractionControllableUnit.instance.OnControllableUnitPickUp += PlayerController_OnControllableUnitPickUp;
         UpdateText();
     }
 

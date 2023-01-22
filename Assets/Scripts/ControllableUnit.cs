@@ -6,9 +6,11 @@ using UnityEngine;
 public class ControllableUnit : MonoBehaviour {
     [SerializeField] private bool isCurrentlyControlledByPlayer;
     private Transform followPoint;
+    private Rigidbody rigidbody;
 
     private void Awake() {
         isCurrentlyControlledByPlayer = false;
+        rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
     private void Update() {
@@ -33,18 +35,27 @@ public class ControllableUnit : MonoBehaviour {
     }
 
     private void FollowtheFollowPoint() {
+        transform.LookAt(followPoint.position);
         Vector3 targetLocation = followPoint.position;
         Vector3 currentLocation = transform.position;
         Vector3 movement = (currentLocation - targetLocation).normalized;
-        float movementSpeed = 10f;
-        float buffOffset = 5f;
-        if ((Math.Abs(currentLocation.x - targetLocation.x) > buffOffset) ||
-                (Math.Abs(currentLocation.z - targetLocation.z) > buffOffset)) {
+        movement.x = Math.Abs(movement.x);
+        movement.y = Math.Abs(movement.y);
+        movement.z = Math.Abs(movement.z);
+        float movementSpeed = 2f;
+        float buffOffset = 3f;
+        //if ((Math.Abs(currentLocation.x - targetLocation.x) > buffOffset) || (Math.Abs(currentLocation.z - targetLocation.z) > buffOffset)) {
+        if ((buffOffset < currentLocation.x - targetLocation.x ^ currentLocation.x - targetLocation.x < -buffOffset) || 
+            (buffOffset < currentLocation.z - targetLocation.z ^ currentLocation.z - targetLocation.z < -buffOffset)) {
             transform.Translate(movement * movementSpeed * Time.deltaTime);
+        } 
+        if (Math.Abs(currentLocation.y - targetLocation.y) < 1f) {
+            //rigidbody.velocity = Vector3.zero;
         }
-        if (Math.Abs(currentLocation.y - targetLocation.y) > buffOffset) {
-            // jump
-            Debug.Log("Jump");
+        float yBuffOffset = 3f;
+        if (targetLocation.y - currentLocation.y > yBuffOffset) {
+            Vector3 y = new Vector3(0, 10, 0);
+            rigidbody.velocity = y;
         }
     }
 

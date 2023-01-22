@@ -18,7 +18,7 @@ public class CameraManagement : MonoBehaviour {
         Vector3 newPosition = followPoint.position;
         float yOffset = 10f;
         float zOffset = -15f;
-        newPosition.y = yOffset;
+        newPosition.y += yOffset;
         newPosition.z += zOffset;
         transform.position = newPosition;
     }

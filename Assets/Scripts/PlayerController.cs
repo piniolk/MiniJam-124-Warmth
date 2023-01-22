@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    public event EventHandler OnControllableUnitPickUp;
     public static PlayerController instance;
     private float movementSpeed = 10f;
 
@@ -20,18 +19,12 @@ public class PlayerController : MonoBehaviour {
         transform.Translate(movement * movementSpeed * Time.deltaTime);
         Vector3 y = new Vector3(0, 10, 0);
         if (Input.GetKeyDown(KeyCode.Space)) {
-            transform.Translate(y * movementSpeed * Time.deltaTime);
+            //transform.Translate(y * movementSpeed * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody>().velocity += y;
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("ControllableUnit")) {
-            if (!other.gameObject.GetComponent<ControllableUnit>().GetIfCurrentlyControlledByPlayer()) {
-                other.GetComponent<ControllableUnit>().UpdateControlledByPlayer();
-                OnControllableUnitPickUp?.Invoke(this, EventArgs.Empty);
-            }
-        }
-    }
+
 
     public Vector3 GetPosition() {
         return transform.position;
@@ -40,4 +33,5 @@ public class PlayerController : MonoBehaviour {
     public Transform GetTransform() {
         return transform;
     }
+
 }
