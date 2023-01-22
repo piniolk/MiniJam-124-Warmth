@@ -42,8 +42,8 @@ public class ControllableUnit : MonoBehaviour {
         movement.x = Math.Abs(movement.x);
         movement.y = Math.Abs(movement.y);
         movement.z = Math.Abs(movement.z);
-        float movementSpeed = 2f;
-        float buffOffset = 3f;
+        float movementSpeed = 4f;
+        float buffOffset = 2.5f;
         //if ((Math.Abs(currentLocation.x - targetLocation.x) > buffOffset) || (Math.Abs(currentLocation.z - targetLocation.z) > buffOffset)) {
         if ((buffOffset < currentLocation.x - targetLocation.x ^ currentLocation.x - targetLocation.x < -buffOffset) || 
             (buffOffset < currentLocation.z - targetLocation.z ^ currentLocation.z - targetLocation.z < -buffOffset)) {
@@ -54,7 +54,7 @@ public class ControllableUnit : MonoBehaviour {
         }
         float yBuffOffset = 3f;
         if (targetLocation.y - currentLocation.y > yBuffOffset) {
-            Vector3 y = new Vector3(0, 10, 0);
+            Vector3 y = new Vector3(0, 12, 0);
             rigidbody.velocity = y;
         }
     }

@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public static PlayerController instance;
     private float movementSpeed = 10f;
+    private bool hasJumped;
 
     private void Awake() {
         instance = this;
+        hasJumped = false;
     }
 
     private void Update() {
@@ -17,10 +19,14 @@ public class PlayerController : MonoBehaviour {
         Vector3 movement = new Vector3(x, 0, z);
 
         transform.Translate(movement * movementSpeed * Time.deltaTime);
-        Vector3 y = new Vector3(0, 10, 0);
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        Vector3 y = new Vector3(0, 12, 0);
+        if (Input.GetKeyDown(KeyCode.Space) && !hasJumped) {
             //transform.Translate(y * movementSpeed * Time.deltaTime);
             gameObject.GetComponent<Rigidbody>().velocity += y;
+            hasJumped = true;
+        }
+        if(gameObject.GetComponent<Rigidbody>().velocity.y == 0) {
+            hasJumped = false;
         }
     }
 
