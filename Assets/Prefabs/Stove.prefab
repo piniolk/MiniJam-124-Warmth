@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6415666120373570105}
   - component: {fileID: 7166386526658568513}
   - component: {fileID: 629712397}
+  - component: {fileID: 6015626282083205865}
   m_Layer: 0
   m_Name: Burner_Front_Left
   m_TagString: Untagged
@@ -97,6 +98,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
   m_Center: {x: -0.0000008940697, y: 0, z: 0.000000029802308}
+--- !u!114 &6015626282083205865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283658054003583393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f42b0d7af8e85429189a622a3218d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3607833566967271497
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +122,7 @@ GameObject:
   - component: {fileID: 6415580916877965674}
   - component: {fileID: 1523301845549822644}
   - component: {fileID: 1766361839}
+  - component: {fileID: 227580196604479997}
   m_Layer: 0
   m_Name: Burner_Front_Right
   m_TagString: Untagged
@@ -194,6 +208,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
   m_Center: {x: 0.00000005960465, y: 0, z: 0.000000029802308}
+--- !u!114 &227580196604479997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3607833566967271497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f42b0d7af8e85429189a622a3218d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4053015824312672516
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +232,7 @@ GameObject:
   - component: {fileID: 2720368351299312807}
   - component: {fileID: 5768030031594873715}
   - component: {fileID: 717784304}
+  - component: {fileID: 6740110850230556931}
   m_Layer: 0
   m_Name: Burner_Back_Right
   m_TagString: Untagged
@@ -291,6 +318,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
   m_Center: {x: 0.00000005960465, y: 0, z: 0.0000001490116}
+--- !u!114 &6740110850230556931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4053015824312672516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f42b0d7af8e85429189a622a3218d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4115582268563082689
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +439,7 @@ GameObject:
   - component: {fileID: 757710690097885971}
   - component: {fileID: 5641685584372135623}
   - component: {fileID: 258046195}
+  - component: {fileID: 7543838618882818273}
   m_Layer: 0
   m_Name: Burner_Back_Left
   m_TagString: Untagged
@@ -485,6 +525,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
   m_Center: {x: -0.0000008940697, y: 0, z: 0.0000001490116}
+--- !u!114 &7543838618882818273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969915805606842223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f42b0d7af8e85429189a622a3218d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8307608365962803387
 GameObject:
   m_ObjectHideFlags: 0

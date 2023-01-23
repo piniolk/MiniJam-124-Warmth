@@ -533,6 +533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCurrentlyControlledByPlayer: 0
+  deathEffectPrefab: {fileID: 8744672793953266820, guid: 42cddbe153bfd014cb7b36e28d9504da,
+    type: 3}
 --- !u!65 &2103125908
 BoxCollider:
   m_ObjectHideFlags: 0

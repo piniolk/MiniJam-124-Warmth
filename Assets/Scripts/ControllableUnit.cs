@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ControllableUnit : MonoBehaviour {
     [SerializeField] private bool isCurrentlyControlledByPlayer;
+    [SerializeField] private ParticleSystem deathEffectPrefab;
     private Transform followPoint;
     private Rigidbody rigidbody;
 
@@ -19,19 +20,20 @@ public class ControllableUnit : MonoBehaviour {
                 FollowtheFollowPoint();
                 break;
             case false:
-                Wander();
                 break;
 
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.GetComponent<Hazard>()) {
+            Death();
         }
     }
 
     public void UpdateControlledByPlayer() {
         isCurrentlyControlledByPlayer = true;
         UpdateFollowPoint();
-    }
-
-    private void Wander() {
-
     }
 
     private void FollowtheFollowPoint() {
@@ -68,6 +70,8 @@ public class ControllableUnit : MonoBehaviour {
     }
 
     private void Death() {
+        UIScript.instance.DeathOfCrab();
+        Instantiate(deathEffectPrefab, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

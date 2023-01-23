@@ -5,9 +5,13 @@ using UnityEngine;
 using TMPro;
 
 public class UIScript : MonoBehaviour {
+    public static UIScript instance;
     [SerializeField] TextMeshProUGUI numberText;
     private int numberCount = 0;
 
+    private void Awake() {
+        instance = this;
+    }
 
     private void Start() {
         PlayerInteractionControllableUnit.instance.OnControllableUnitPickUp += PlayerController_OnControllableUnitPickUp;
@@ -20,6 +24,11 @@ public class UIScript : MonoBehaviour {
 
     private void PlayerController_OnControllableUnitPickUp(object sender, EventArgs e) {
         numberCount++;
+        UpdateText();
+    }
+
+    public void DeathOfCrab() {
+        numberCount--;
         UpdateText();
     }
 }
