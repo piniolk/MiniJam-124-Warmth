@@ -31,4 +31,8 @@ public class UIScript : MonoBehaviour {
         numberCount--;
         UpdateText();
     }
+
+    public int GetCrabCount() {
+        return numberCount;
+    }
 }

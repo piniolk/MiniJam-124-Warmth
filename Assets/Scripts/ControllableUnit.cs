@@ -37,24 +37,25 @@ public class ControllableUnit : MonoBehaviour {
     }
 
     private void FollowtheFollowPoint() {
-        transform.LookAt(followPoint.position);
         Vector3 targetLocation = followPoint.position;
+
         Vector3 currentLocation = transform.position;
+
+        Vector3 lookAtPosition = followPoint.position;
+        lookAtPosition.y = currentLocation.y;
+        transform.LookAt(lookAtPosition);
+
         Vector3 movement = (currentLocation - targetLocation).normalized;
         movement.x = Math.Abs(movement.x);
         movement.y = Math.Abs(movement.y);
         movement.z = Math.Abs(movement.z);
         float movementSpeed = 4f;
         float buffOffset = 2.5f;
-        //if ((Math.Abs(currentLocation.x - targetLocation.x) > buffOffset) || (Math.Abs(currentLocation.z - targetLocation.z) > buffOffset)) {
-        if ((buffOffset < currentLocation.x - targetLocation.x ^ currentLocation.x - targetLocation.x < -buffOffset) || 
+        if ((buffOffset < currentLocation.x - targetLocation.x ^ currentLocation.x - targetLocation.x < -buffOffset) ||
             (buffOffset < currentLocation.z - targetLocation.z ^ currentLocation.z - targetLocation.z < -buffOffset)) {
             transform.Translate(movement * movementSpeed * Time.deltaTime);
-        } 
-        if (Math.Abs(currentLocation.y - targetLocation.y) < 1f) {
-            //rigidbody.velocity = Vector3.zero;
         }
-        float yBuffOffset = 3f;
+        float yBuffOffset = 1f;
         if (targetLocation.y - currentLocation.y > yBuffOffset) {
             Vector3 y = new Vector3(0, 12, 0);
             rigidbody.velocity = y;
@@ -70,7 +71,10 @@ public class ControllableUnit : MonoBehaviour {
     }
 
     private void Death() {
-        UIScript.instance.DeathOfCrab();
+        if (GetIfCurrentlyControlledByPlayer()) {
+            UIScript.instance.DeathOfCrab();
+        }
+
         Instantiate(deathEffectPrefab, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

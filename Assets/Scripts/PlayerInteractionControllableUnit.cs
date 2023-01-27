@@ -23,5 +23,8 @@ public class PlayerInteractionControllableUnit : MonoBehaviour {
                 OnControllableUnitPickUp?.Invoke(this, EventArgs.Empty);
             }
         }
+        if (other.gameObject.GetComponent<Goal>()) {
+            GameManager.Instance.GoalAchieved();
+        }
     }
 }
