@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    public static PlayerController instance;
+    public static PlayerController instance { get; private set; }
     private float movementSpeed = 10f;
     private bool hasJumped;
 
     private void Awake() {
+        if (instance != null) {
+            Debug.LogError("There's more than one PlayerController! " + transform + " - " + instance);
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
         hasJumped = false;
     }

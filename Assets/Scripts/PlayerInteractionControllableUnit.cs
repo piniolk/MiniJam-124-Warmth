@@ -6,9 +6,14 @@ using UnityEngine;
 public class PlayerInteractionControllableUnit : MonoBehaviour {
 
     public event EventHandler OnControllableUnitPickUp;
-    public static PlayerInteractionControllableUnit instance;
+    public static PlayerInteractionControllableUnit instance { get; private set; }
 
     private void Awake() {
+        if (instance != null) {
+            Debug.LogError("There's more than one PlayerInteractionControllableUnit! " + transform + " - " + instance);
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
     }
 

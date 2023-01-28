@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
     [SerializeField] private GameObject goalScreen;
     [SerializeField] private GameObject UIScreen;
     [SerializeField] private GameObject PauseScreen;
