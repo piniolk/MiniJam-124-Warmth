@@ -8,6 +8,7 @@ public class ControllableUnit : MonoBehaviour {
     [SerializeField] private ParticleSystem deathEffectPrefab;
     private Transform followPoint;
     private Rigidbody rigidbody;
+    private int amtJumped = 0;
 
     private void Awake() {
         isCurrentlyControlledByPlayer = false;
@@ -57,9 +58,15 @@ public class ControllableUnit : MonoBehaviour {
         }
         float yBuffOffset = 1f;
         if (targetLocation.y - currentLocation.y > yBuffOffset) {
-            Vector3 y = new Vector3(0, 12, 0);
-            rigidbody.velocity = y;
+            //if (amtJumped < 1) {
+                Vector3 y = new Vector3(0, 15, 0);
+                rigidbody.velocity += y;
+            //    amtJumped++;
+            //}
         }
+        /*if (gameObject.GetComponent<Rigidbody>().velocity.y == 0) {
+            amtJumped = 0;
+        }*/
     }
 
     private void UpdateFollowPoint() {
