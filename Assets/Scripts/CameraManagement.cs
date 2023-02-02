@@ -11,7 +11,6 @@ public class CameraManagement : MonoBehaviour {
 
     private void Update() {
         TrackPosition();
-        //Rotation();
     }
 
     private void TrackPosition() {

@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour {
         transform.Translate(movement * movementSpeed * Time.deltaTime);
         Vector3 y = new Vector3(0, 12, 0);
         if (Input.GetKeyDown(KeyCode.Space) && !hasJumped) {
-            //transform.Translate(y * movementSpeed * Time.deltaTime);
             gameObject.GetComponent<Rigidbody>().velocity += y;
             hasJumped = true;
         }
